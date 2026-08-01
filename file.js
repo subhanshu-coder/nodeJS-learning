@@ -10,3 +10,8 @@ fs.writeFile("./hello.txt", "hello world Async", (err) => {}); // Writing "hello
 fs.appendFileSync("./hello.txt", ` ${Date.now()} hey there\n`); //appending the current timestamp and "hey there" to 'hello.txt' synchronously
  // Appending text to 'hello.txt' synchronously
 // The fs.appendFileSync() method is a synchronous operation that appends data to a file. If the file does not exist, it will be created. In this case, it appends " Appending this text to the file." to 'hello.txt'.
+
+fs.cpSync("./hello.txt", "./hello2.txt"); // Copying 'hello.txt' to 'hello2.txt' synchronously
+// The fs.cpSync() method is a synchronous operation that copies a file from one location to another. In this case, it copies the contents of 'hello.txt' to a new file named 'hello2.txt'. If 'hello2.txt' already exists, its content will be replaced with the content of 'hello.txt'.
+
+fs.unlinkSync("./hello2.txt"); // Deleting 'hello2.txt' synchronously
