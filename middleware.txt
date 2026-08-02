@@ -529,6 +529,7 @@ Middleware is commonly used for authentication, authorization, logging, validati
 
 If you're learning MERN, middleware is used constantly—for example:
 
+middleware work as a middle man between software and client , client passing the request and middleware process it then repond to users command 
 Express uses middleware to process requests.
 JWT authentication is implemented as middleware to verify logged-in users.
 Validation middleware checks request data before it reaches your business logic.
