@@ -486,3 +486,50 @@ express.json()
 express.static()
 Error middleware – handles errors.
 (err, req, res, next)
+
+Complete Flow
+Browser
+
+↓
+
+Request
+
+↓
+
+express.json()
+
+↓
+
+Logger Middleware
+
+↓
+
+Authentication Middleware
+
+↓
+
+Route Handler
+
+↓
+
+Response
+
+↓
+
+Browser
+Key Points to Remember
+Middleware is a function that executes before the route handler.
+It has the signature (req, res, next).
+req contains request data.
+res is used to send the response.
+next() passes control to the next middleware or route.
+If you call res.send(), the request ends.
+If you call neither next() nor a response method, the request hangs.
+Middleware is commonly used for authentication, authorization, logging, validation, parsing JSON, serving static files, and error handling.
+
+If you're learning MERN, middleware is used constantly—for example:
+
+Express uses middleware to process requests.
+JWT authentication is implemented as middleware to verify logged-in users.
+Validation middleware checks request data before it reaches your business logic.
+Logging middleware records incoming requests for debugging or monitoring
