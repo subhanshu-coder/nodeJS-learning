@@ -1,3 +1,30 @@
 hii i am batman fan
 hello world
 mobile no 9111111111
+
+express version explain 
+i having this version "express": "^5.2.1"
+1st part -> 5
+2nd part -> 2
+3rd part -> 1
+
+// 3rd part (last part) - minor fixes (optional in version of express)
+latest-> 5.2.1 -> 5.2.2 -> 5.2.3 -> 5.2.4
+
+//2nd part - recommended bug fix (security fix)
+latest -> 5.2.1 -> 5.3.1 -> 5.4.1
+
+//3rd major release - mojor / breaking update
+latest -> 5.2.1 -> 6.0.0 -> 7.0.0 
+
+express = ^5.2.1 
+5th version 
+^5.2.1
+5.3.1
+5.3.2
+5.3.3
+5.3.4
+
+^ - Install all recommended and minor fixes automatically
+
+
