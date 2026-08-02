@@ -261,3 +261,18 @@ Example:
 }
 
 This uniquely identifies each document.
+Why Do Developers Like MongoDB?
+Easy to work with JavaScript because documents look like JSON.
+Flexible schema for changing application requirements.
+Scales well for large applications.
+Fast for many common web application workloads.
+MongoDB vs SQL
+SQL	MongoDB
+Tables	Collections
+Rows	Documents
+Columns	Fields
+Fixed schema	Flexible schema
+Uses SQL queries	Uses JSON-like queries
+One-Line Summary
+
+MongoDB is a NoSQL database that stores application data as JSON-like documents inside collections, making it flexible and a natural fit for JavaScript applications like the MERN stack.
