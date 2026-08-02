@@ -106,3 +106,76 @@ age
 city
 
 are fields.
+
+Why is MongoDB called NoSQL?
+
+SQL databases use tables.
+
+Users Table
+
+ID | Name | Age
+----------------
+1  | Prince | 21
+2  | Rahul  | 22
+
+MongoDB uses documents.
+
+{
+  "_id": 1,
+  "name": "Prince",
+  "age": 21
+}
+
+No fixed table structure is required.
+
+Flexible Schema
+
+Suppose User 1 has
+
+{
+  "name": "Prince",
+  "age": 21
+}
+
+User 2 can have
+
+{
+  "name": "Rahul",
+  "age": 22,
+  "hobby": "Gym"
+}
+
+Different documents in the same collection can have different fields. This flexibility is one of MongoDB's biggest advantages.
+
+CRUD Operations
+
+Every database mainly performs four operations.
+
+Create
+
+Insert data.
+
+db.users.insertOne({
+    name: "Prince",
+    age: 21
+});
+Read
+
+Get data.
+
+db.users.find();
+Update
+
+Modify existing data.
+
+db.users.updateOne(
+    { name: "Prince" },
+    { $set: { age: 22 } }
+);
+Delete
+
+Remove data.
+
+db.users.deleteOne({
+    name: "Prince"
+});
