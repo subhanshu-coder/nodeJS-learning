@@ -24,4 +24,13 @@ app.get("/about", (req, res) =>{
 
 const myServer = http.createServer(app); // Creating an HTTP server using the Express application as the request handler
 
-myServer.listen(5000, () => console.log("server is listening on port 5000")); // Starting the server and listening for incoming requests on port 5000, and logging a message to the console when the server is ready
+myServer.listen(8000, () => console.log("server is listening on port 5000")); // Starting the server and listening for incoming requests on port 5000, and logging a message to the console when the server is ready
+
+// express routing definition take the following structure:
+app.METHOD(PATH, HANDLER) // METHOD: The HTTP method (GET, POST, PUT, DELETE, etc.) that the route will respond to. PATH: The URL path that the route will match. HANDLER: A callback function that will be executed when the route is matched. It takes two parameters: req (the request object) and res (the response object).
+
+// where:
+// app: This is the instance of the Express application that you created using express(). It represents your web application and provides methods for defining routes and handling requests.
+// METHOD is an http request method, such as GET, POST, PUT, DELETE, etc. It specifies the type of HTTP request that the route will respond to. For example, app.get() defines a route that responds to GET requests, while app.post() defines a route that responds to POST requests. in lowercase.
+// path: is a path on the server.
+// handler is the function executed when the route is matched.
