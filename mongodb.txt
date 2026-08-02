@@ -199,3 +199,65 @@ MongoDB stores or retrieves the data.
 ↓
 
 Data is sent back to React.
+
+Flow:
+
+React
+
+↓
+
+Express
+
+↓
+
+Node.js
+
+↓
+
+MongoDB
+
+↓
+
+Response
+Example: Registration
+
+User fills a form.
+
+Name : Prince
+Email : prince@gmail.com
+Password : 123456
+
+React sends the data.
+
+↓
+
+Express receives it.
+
+↓
+
+Node.js validates it.
+
+↓
+
+MongoDB stores it.
+
+Stored document:
+
+{
+  "name": "Prince",
+  "email": "prince@gmail.com",
+  "password": "123456"
+}
+What is _id?
+
+Every MongoDB document automatically gets a unique ID.
+
+Example:
+
+{
+   "_id": "6891d56ab2...",
+   "name": "Prince",
+   "age": 21
+}
+
+This uniquely identifies each document.
