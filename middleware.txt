@@ -1,0 +1,130 @@
+Middleware is one of the most important concepts in Express.js. If you understand middleware well, you'll understand how Express handles every request.
+
+What is Middleware?
+
+A middleware is a function that runs between receiving a request and sending a response.
+
+Think of it as a checkpoint.
+
+Client
+   │
+   ▼
+Request
+   │
+   ▼
+Middleware 1
+   │
+   ▼
+Middleware 2
+   │
+   ▼
+Middleware 3
+   │
+   ▼
+Route Handler
+   │
+   ▼
+Response
+   │
+   ▼
+Client
+
+Every request passes through middleware before reaching the final route.
+
+Real-Life Example (Restaurant)
+
+Imagine you enter a restaurant.
+
+You
+ │
+ ▼
+Security Guard
+ │
+ ▼
+Reception
+ │
+ ▼
+Waiter
+ │
+ ▼
+Chef
+ │
+ ▼
+Food Served
+
+Each person does one job.
+
+Security Guard
+
+Checks if you're allowed inside.
+
+Allowed?
+Yes → Continue
+No → Stop
+
+This is middleware.
+
+Reception
+
+Takes your name.
+
+Name: Prince
+Table: 5
+
+Then sends you to the waiter.
+
+Middleware.
+
+Waiter
+
+Takes your order.
+
+Burger
+Fries
+
+Passes it to the chef.
+
+Middleware.
+
+Chef
+
+Prepares food.
+
+Equivalent to your route handler.
+
+Express Flow
+
+Suppose you open
+
+GET /profile
+
+The flow is
+
+Browser
+
+↓
+
+Express receives request
+
+↓
+
+Middleware
+
+↓
+
+Another Middleware
+
+↓
+
+Route
+
+↓
+
+Response
+Middleware Syntax
+function middleware(req, res, next) {
+    console.log("Middleware executed");
+    next();
+}
+
+There are 3 parameters.
