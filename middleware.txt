@@ -128,3 +128,197 @@ function middleware(req, res, next) {
 }
 
 There are 3 parameters.
+
+1. req (Request)
+
+Contains information sent by the client.
+
+Example
+
+req.url
+
+Output
+
+/profile
+req.method
+
+Output
+
+GET
+2. res (Response)
+
+Used to send data back.
+
+res.send("Hello")
+
+Response ends here.
+
+3. next()
+
+This is the most important part.
+
+It tells Express:
+
+"I'm done. Go to the next middleware or route."
+
+Without it, Express stops.
+
+Example 1
+const express = require("express");
+
+const app = express();
+
+app.use((req, res, next) => {
+    console.log("Middleware");
+    next();
+});
+
+app.get("/", (req, res) => {
+    res.send("Home");
+});
+
+app.listen(3000);
+
+When you visit
+
+localhost:3000
+
+Console
+
+Middleware
+
+Browser
+
+Home
+
+Flow
+
+Request
+
+↓
+
+Middleware
+
+↓
+
+next()
+
+↓
+
+Route
+
+↓
+
+Response
+What happens without next()?
+app.use((req, res, next) => {
+    console.log("Middleware");
+});
+
+Now open
+
+localhost:3000
+
+Output
+
+Middleware
+
+Browser
+
+Loading forever...
+
+Why?
+
+Because Express waits for either:
+
+next(), or
+res.send(), res.json(), res.end(), etc.
+
+Since neither happened, the request never finishes.
+
+Middleware Can End the Request
+
+Instead of calling next():
+
+app.use((req, res) => {
+    res.send("Blocked");
+});
+
+Now
+
+Client
+
+↓
+
+Middleware
+
+↓
+
+Response Sent
+
+❌ Route never executes
+Multiple Middleware
+app.use((req, res, next) => {
+    console.log("First");
+    next();
+});
+
+app.use((req, res, next) => {
+    console.log("Second");
+    next();
+});
+
+app.get("/", (req, res) => {
+    console.log("Route");
+    res.send("Hello");
+});
+
+Console
+
+First
+Second
+Route
+
+Flow
+
+Request
+
+↓
+
+Middleware 1
+
+↓
+
+Middleware 2
+
+↓
+
+Route
+
+↓
+
+Response
+Middleware Can Modify Request
+app.use((req, res, next) => {
+
+    req.user = {
+        name: "Prince"
+    };
+
+    next();
+
+});
+
+Later
+
+app.get("/", (req, res) => {
+
+    res.send(req.user.name);
+
+});
+
+Output
+
+Prince
+
+Middleware added data to the request.
