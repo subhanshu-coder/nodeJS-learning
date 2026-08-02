@@ -25,6 +25,13 @@ express = ^5.2.1
 5.3.3
 5.3.4
 
+5.4.1 possible
+
 ^ - Install all recommended and minor fixes automatically
 
+~5.2.1
+~5.2.3
+~5.2.4
+~5.2.5
 
+5.3.1 Nooooo....
