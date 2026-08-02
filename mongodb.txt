@@ -1,0 +1,1 @@
+mongodb is no sql database which having data into document collection not in the sql type where sql having user data in tables 
