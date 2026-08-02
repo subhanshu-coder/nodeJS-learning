@@ -322,3 +322,167 @@ Output
 Prince
 
 Middleware added data to the request.
+
+Why is this useful?
+
+Imagine authentication.
+
+Middleware
+
+req.user = {
+    id: 10,
+    name: "Prince"
+}
+
+Every route can now use
+
+req.user
+
+No need to fetch the user again in each route.
+
+Built-in Middleware
+JSON Middleware
+app.use(express.json());
+
+Without it
+
+POST
+{
+   "name":"Prince"
+}
+
+req.body
+
+undefined
+
+With it
+
+req.body
+
+Output
+
+{
+   name:"Prince"
+}
+Static Middleware
+app.use(express.static("public"));
+
+Now
+
+public/logo.png
+
+can be opened directly as
+
+localhost:3000/logo.png
+Route-specific Middleware
+
+Instead of every route
+
+app.use(auth);
+
+Only one route
+
+app.get("/profile", auth, (req, res) => {
+    res.send("Profile");
+});
+
+Flow
+
+Request
+
+↓
+
+auth Middleware
+
+↓
+
+Route
+
+↓
+
+Response
+Authentication Example
+function auth(req, res, next) {
+
+    const loggedIn = true;
+
+    if (!loggedIn) {
+        return res.send("Login First");
+    }
+
+    next();
+}
+
+app.get("/profile", auth, (req, res) => {
+    res.send("Welcome");
+});
+
+If
+
+loggedIn = false
+
+Output
+
+Login First
+
+If
+
+loggedIn = true
+
+Flow
+
+auth
+
+↓
+
+next()
+
+↓
+
+Route
+
+↓
+
+Welcome
+Logging Middleware
+app.use((req, res, next) => {
+
+    console.log(req.method);
+    console.log(req.url);
+
+    next();
+
+});
+
+If you visit
+
+GET /about
+
+Console
+
+GET
+/about
+
+Very useful for debugging and monitoring.
+
+Error Middleware
+
+Error-handling middleware has 4 parameters.
+
+app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(500).send("Something went wrong");
+});
+
+Express recognizes it as an error handler because of the extra err parameter.
+
+Types of Middleware
+Application middleware – runs for many or all routes.
+app.use(...)
+Route middleware – runs only for specific routes.
+app.get("/profile", auth, handler)
+Built-in middleware – provided by Express.
+express.json()
+express.static()
+Error middleware – handles errors.
+(err, req, res, next)
