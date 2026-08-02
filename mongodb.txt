@@ -179,3 +179,23 @@ Remove data.
 db.users.deleteOne({
     name: "Prince"
 });
+
+Why Use MongoDB in MERN?
+
+React collects user input.
+
+↓
+
+Express receives the request.
+
+↓
+
+Node.js processes the request.
+
+↓
+
+MongoDB stores or retrieves the data.
+
+↓
+
+Data is sent back to React.
