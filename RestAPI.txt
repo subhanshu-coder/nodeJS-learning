@@ -1,0 +1,17 @@
+API (Application Programming Interface) = A general way for two software systems to communicate.
+REST API = A specific type of API that follows the REST (Representational State Transfer) rules and usually works over HTTP.
+Simple example
+API = "Communication method" (can be REST, GraphQL, SOAP, gRPC, etc.)
+REST API = One specific communication method that uses URLs and HTTP methods.
+
+Example of a REST API:
+
+GET /users       // Get users
+POST /users      // Create a user
+PUT /users/1     // Update user with ID 1
+DELETE /users/1  // Delete user with ID 1
+One-line difference
+API = Any interface that lets software communicate.
+REST API = An API that follows REST principles using HTTP methods like GET, POST, PUT, and DELETE.
+
+Remember: Every REST API is an API, but not every API is a REST API.
